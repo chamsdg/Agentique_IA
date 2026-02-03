@@ -3,4 +3,8 @@ uvicorn[standard]
 requests
 streamlit
 snowflake-snowpark-python
+python-dotenv
+pydantic
+
+
 
