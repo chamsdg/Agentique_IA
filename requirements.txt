@@ -1,5 +1,6 @@
 fastapi
 uvicorn[standard]
 requests
-python-dotenv
 streamlit
+snowflake-snowpark-python
+
