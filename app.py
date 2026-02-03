@@ -9,7 +9,9 @@ from dotenv import load_dotenv
 # -------------------------
 load_dotenv()
 API_KEY = (os.getenv("API_KEY") or "").strip()
-BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000/chat/stream")
+# BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000/chat/stream")
+BACKEND_URL = "https://agentique-ia.onrender.com/chat/stream"
+
 
 LOGO_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTSgfw9M41EkrtiC-5aV_4x3RNVOheebqUrg&s"
 
@@ -254,7 +256,11 @@ def run_stream(ui_key: str, prompt: str):
         "messages": messages[-20:],
         "debug_reasoning": False,
     }
-    headers = {"X-API-Key": API_KEY} if API_KEY else {}
+    #headers = {"X-API-Key": API_KEY} if API_KEY else {}
+    headers = {
+    "x-api-key": st.secrets["API_KEY"]
+}
+
 
     with st.chat_message("assistant", avatar=UI_ICON[ui_key]):
         placeholder = st.empty()
@@ -414,3 +420,4 @@ for m in messages:
 prompt = st.chat_input(f"Écrire à {UI_NAME[active]}… (Entrée pour envoyer)")
 if prompt:
     run_stream(active, prompt)
+
