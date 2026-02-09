@@ -18,6 +18,7 @@ LOGO_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTSgfw9M41Ekrt
 AGENTS = [
     {"ui_key": "Agent Analytic Vente", "ui_name": "Agent Analytic Vente", "sf_agent": "AGENT_VENTES", "icon": "💼", "theme": "blue"},
     {"ui_key": "Agent Analytic OLGA", "ui_name": "Agent Analytic OLGA", "sf_agent": "AGENT_OPPORTUNITE", "icon": "🎯", "theme": "pink"},
+    {"ui_key": "Agent Analytic STOCK", "ui_name": "Agent Analytic STOCK", "sf_agent": "AGENT_STOCK", "icon": "📦", "theme": "green"},
 ]
 
 UI_KEYS = [a["ui_key"] for a in AGENTS]
@@ -420,4 +421,5 @@ for m in messages:
 prompt = st.chat_input(f"Écrire à {UI_NAME[active]}… (Entrée pour envoyer)")
 if prompt:
     run_stream(active, prompt)
+
 
