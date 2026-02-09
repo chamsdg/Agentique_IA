@@ -15,7 +15,7 @@ DB = (os.getenv("SNOWFLAKE_DB") or "").strip()
 SCHEMA = (os.getenv("SNOWFLAKE_SCHEMA") or "").strip()
 API_KEY = (os.getenv("API_KEY") or "").strip()
 
-ALLOWED_AGENTS = {"AGENT_VENTES", "AGENT_OPPORTUNITE"}
+ALLOWED_AGENTS = {"AGENT_VENTES", "AGENT_OPPORTUNITE","AGENT_STOCK"}
 
 if not all([ACCOUNT, PAT, DB, SCHEMA]):
     raise RuntimeError("Missing .env vars for Snowflake (ACCOUNT, PAT, DB, SCHEMA).")
@@ -233,3 +233,4 @@ if __name__ == "__main__":
 
     port = int(os.getenv("PORT", "8000"))
     uvicorn.run("api:app", host="0.0.0.0", port=port)
+
